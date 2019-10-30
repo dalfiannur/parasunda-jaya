@@ -19,14 +19,16 @@ const useStyle = makeStyles(theme => ({
 
 export default () => {
 	const classes = useStyle()
+	const globalWindow = window !== 'undefined' && window
+
 	const [slug, setSlug] = useState('bakso-daging')
 	const [product, setProduct] = useState(products[0])
 
 	useEffect(() => {
-		const url = _.replace(window.location.search, '?', '')
+		const url = _.replace(globalWindow.location.search, '?', '')
 		const query = queryString.parse(url)
 		setSlug(query.name ? query.name : 'bakso-daging')
-	}, [window.location.search])
+	}, [globalWindow.location.search])
 
 	useEffect(() => {
 		const index = products.findIndex(item => item.slug === slug)
