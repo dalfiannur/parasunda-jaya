@@ -28,7 +28,7 @@ export default () => {
 		const url = _.replace(_window.location.search, '?', '')
 		const query = queryString.parse(url)
 		setSlug(query.name ? query.name : 'bakso-daging')
-	}, [_window.location.search])
+	}, [_window])
 
 	useEffect(() => {
 		const index = products.findIndex(item => item.slug === slug)
