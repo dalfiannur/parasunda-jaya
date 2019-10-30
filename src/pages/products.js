@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
-import window from 'global'
+import window from 'global/window'
 import queryString from 'querystring'
 import { makeStyles } from '@material-ui/styles'
 import {
