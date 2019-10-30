@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
-import window from 'global/window'
+import _window from 'global/window'
 import queryString from 'querystring'
 import { makeStyles } from '@material-ui/styles'
 import {
@@ -25,10 +25,10 @@ export default () => {
 	const [product, setProduct] = useState(products[0])
 
 	useEffect(() => {
-		const url = _.replace(window.location.search, '?', '')
+		const url = _.replace(_window.location.search, '?', '')
 		const query = queryString.parse(url)
 		setSlug(query.name ? query.name : 'bakso-daging')
-	}, [window.location.search])
+	}, [_window.location.search])
 
 	useEffect(() => {
 		const index = products.findIndex(item => item.slug === slug)
